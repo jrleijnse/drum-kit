@@ -64,15 +64,12 @@
         if (!audio) return;
         audio.currentTime = 0;
         audio.play();
-
         key.classList.add("playing");
 
         // setTimeout(function () {
         //   key.classList.remove("playing");
         // }, 70);
       };
-
-      window.addEventListener("keydown", playSound);
 
       const removeTransition = function (e) {
         if (e.propertyName !== "transform") return;
@@ -83,6 +80,8 @@
       keys.forEach((key) =>
         key.addEventListener("transitionend", removeTransition)
       );
+
+      window.addEventListener("keydown", playSound);
     </script>
   </body>
 </html>
