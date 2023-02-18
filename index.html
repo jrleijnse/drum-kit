@@ -72,11 +72,12 @@
         // }, 70);
       });
 
-      const keys = document.querySelectorAll(".key");
       const removeTransition = function (e) {
-        e.target.classList.remove("playing");
+        if (e.propertyName !== "transform") return;
+        this.classList.remove("playing");
       };
 
+      const keys = document.querySelectorAll(".key");
       keys.forEach((key) =>
         key.addEventListener("transitionend", removeTransition)
       );
