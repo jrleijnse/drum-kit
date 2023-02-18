@@ -57,7 +57,7 @@
     <audio data-key="76" src="sounds/darkness.wav"></audio>
 
     <script>
-      window.addEventListener("keydown", function (e) {
+      const playSound = function (e) {
         const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
         const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
 
@@ -70,7 +70,9 @@
         // setTimeout(function () {
         //   key.classList.remove("playing");
         // }, 70);
-      });
+      };
+
+      window.addEventListener("keydown", playSound);
 
       const removeTransition = function (e) {
         if (e.propertyName !== "transform") return;
